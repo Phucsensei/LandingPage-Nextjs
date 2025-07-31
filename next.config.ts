@@ -1,6 +1,9 @@
 import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
+  images: {
+    domains: ['via.placeholder.com', 'cr7-ronaldo.netlify.app']
+  },
   sassOptions: {
     additionalData: '$var: red;'
   },
