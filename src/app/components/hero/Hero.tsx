@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import './hero.scss'
-import cr7 from '../../../assets/cr7.png'
+import cr7 from '../../../assets/cr7-2.png'
 import scroll from '../../../assets/scroll.png'
 import { Variants, motion } from 'framer-motion'
 

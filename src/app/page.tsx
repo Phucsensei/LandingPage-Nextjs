@@ -1,7 +1,7 @@
 'use client'
+import { About } from './components/about/About'
 import { Hero } from './components/hero/Hero'
 import { Navbar } from './components/navbar/navbar'
-import { Test } from './components/Test'
 
 
 export default function Home() {
@@ -10,7 +10,7 @@ export default function Home() {
       <Navbar />
       <Hero />
     </section>
-    <section id="Services">sdsdsdsd</section>
+    <section id="About"><About /></section>
     <section id="About">sdsdsdsd</section>
     <section id="Contact">sdsdsdsd</section>
     <section id="Blog">sdsdsdsd</section>
