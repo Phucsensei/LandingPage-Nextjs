@@ -1,4 +1,16 @@
+import { Variants, motion } from 'framer-motion'
+
+
 export const Links = () => {
+    const Variants: Variants = {
+        open: { transition: { staggerChildren: 0.1 } },
+        closed: { transition: { staggerChildren: 0.05, staggerDirection: -1 } }
+    }
+
+    const itemVariants: Variants = {
+        open: { y: 0, opacity: 1 },
+        closed: { y: 50, opacity: 0 }
+    }
 
     const items = [
         'HomePage',
@@ -8,12 +20,12 @@ export const Links = () => {
         'Blog'
     ]
     return (
-        <div className="links">
+        <motion.div className="links" variants={Variants}>
             {items.map((item) => (
-                <a key={item} href={`#${item}`}>
+                <motion.a key={item} href={`#${item}`} variants={itemVariants} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
                     {item}
-                </a>
+                </motion.a>
             ))}
-        </div>
+        </motion.div>
     )
 }
