@@ -1,4 +1,5 @@
 'use client'
+import { Hero } from './components/hero/Hero'
 import { Navbar } from './components/navbar/navbar'
 import { Test } from './components/Test'
 
@@ -7,6 +8,7 @@ export default function Home() {
   return <div>
     <section id="HomePage">
       <Navbar />
+      <Hero />
     </section>
     <section id="Services">sdsdsdsd</section>
     <section id="About">sdsdsdsd</section>
