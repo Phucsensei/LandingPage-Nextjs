@@ -41,12 +41,12 @@ export const About = () => {
                 <div className="title">
                     <Image src={uclCr7} alt="about" />
                     <h1>
-                        <b>Unmatched </b>Passion.
+                        <motion.b whileHover={{ color: 'orange' }}>Unmatched </motion.b>Passion.
                     </h1>
                 </div>
                 <div className="title">
                     <h1>
-                        <b>Legendary </b>Journey.
+                        <motion.b whileHover={{ color: 'orange' }}>Legendary </motion.b>Journey.
                     </h1>
 
                 </div>
