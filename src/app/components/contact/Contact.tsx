@@ -1,25 +1,47 @@
 import { useRef } from 'react'
 import './contact.scss'
 import { motion, useInView } from 'framer-motion'
+import emailjs from '@emailjs/browser'
+import toast from 'react-hot-toast'
 
+const variants = {
+    initial: {
+        opacity: 0,
+        y: 500
+    },
+    animate: {
+        opacity: 1,
+        y: 0,
+        transition: {
+            duration: 0.5,
+            staggerChildren: 0.1
+        }
+    }
+}
 export const Contact = () => {
 
     const ref = useRef(null)
+    const formRef = useRef(null)
     const isInView = useInView(ref, { margin: '-100px' })
 
-    const variants = {
-        initial: {
-            opacity: 0,
-            y: 500
-        },
-        animate: {
-            opacity: 1,
-            y: 0,
-            transition: {
-                duration: 0.5,
-                staggerChildren: 0.1
-            }
-        }
+    // Send email
+    const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
+
+        if (!formRef.current) return
+
+        emailjs
+            .sendForm('service_dvcli8c', 'template_u6k962h', formRef.current, {
+                publicKey: '_42KJqPADWeETBOI5'
+            })
+            .then(
+                () => {
+                    toast.success('Message sent successfully!')
+                },
+                (error) => {
+                    toast.error('Something went wrong!')
+                }
+            )
     }
     return (
         <motion.div className='contact' variants={variants} initial="initial" whileInView='animate' >
@@ -39,10 +61,10 @@ export const Contact = () => {
                 </motion.div>
             </motion.div>
             <div className="formContainer">
-                <motion.form initial={{ opacity: 1 }} whileInView={{ opacity: 0 }} transition={{ duration: 1, delay: 3 }} animate={isInView && { opacity: 1 }}>
-                    <input type="text" placeholder='Name' />
-                    <input type="text" placeholder='Email' />
-                    <textarea rows={8} placeholder='Message' />
+                <motion.form ref={formRef} onSubmit={sendEmail} initial={{ opacity: 1 }} transition={{ duration: 1, delay: 3 }} animate={isInView && { opacity: 1 }}>
+                    <input required type="text" placeholder='Name' name='name' />
+                    <input required type="text" placeholder='Email' name='email' />
+                    <textarea required rows={8} placeholder='Message' name='message' />
                     <button>Submit</button>
                 </motion.form>
             </div>
