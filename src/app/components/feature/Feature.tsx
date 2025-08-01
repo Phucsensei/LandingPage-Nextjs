@@ -1,8 +1,8 @@
 import './feature.scss'
 import { items } from '@/app/apis/mock-data'
-import { motion, useScroll, useSpring, useTransform } from 'framer-motion'
+import { motion, useScroll, useSpring, useTransform, useInView } from 'framer-motion'
 import Image from 'next/image'
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 type FeatureItemProps = {
     item: {
@@ -17,6 +17,11 @@ const Single = ({ item }: FeatureItemProps) => {
     const ref = useRef(null)
     const [isExpanded, setIsExpanded] = useState(false)
 
+    const isInView = useInView(ref, {
+        margin: '-10% 0px -60% 0px',
+        amount: 'some'
+    })
+
     const { scrollYProgress } = useScroll({
         target: ref,
         offset: ['start start', 'end start']
@@ -29,6 +34,13 @@ const Single = ({ item }: FeatureItemProps) => {
     const toggleExpand = () => {
         setIsExpanded(!isExpanded)
     }
+
+    // 🧠 Reset khi section không còn hiển thị
+    useEffect(() => {
+        if (!isInView && isExpanded) {
+            setIsExpanded(false)
+        }
+    }, [isInView, isExpanded])
 
     return (
         <section ref={ref}>
@@ -94,7 +106,7 @@ export const Feature = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
                 >
-                    Features
+                    Ronaldo's Career Timeline
                 </motion.h1>
                 <motion.div className="progressBar" style={{ scaleX }}></motion.div>
             </div>
