@@ -40,8 +40,10 @@ export const Contact = () => {
                     toast.success('Message sent successfully!')
                 },
                 (error) => {
+                    console.error('EmailJS Error:', error)
                     toast.error('Something went wrong!')
                 }
+
             )
     }
     return (

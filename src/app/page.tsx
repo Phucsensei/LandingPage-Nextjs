@@ -4,7 +4,6 @@ import { Hero } from './components/hero/Hero'
 import { Navbar } from './components/navbar/navbar'
 import { Feature } from './components/feature/Feature'
 import { Contact } from './components/contact/Contact'
-import { Footer } from './footer/Footer'
 
 
 export default function Home() {

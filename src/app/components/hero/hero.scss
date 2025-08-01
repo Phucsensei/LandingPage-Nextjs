@@ -1,3 +1,21 @@
+@mixin mobile {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (max-width: 1366px) {
+    @content;
+  }
+}
+
 .hero {
   height: calc(100vh - 100px);
   background: linear-gradient(180deg, #0c0c1d, #111132);
@@ -157,25 +175,25 @@
             padding: 14px 20px;
           }
         }
-      }
 
-      Image {
-        width: 40px;
-        opacity: 0.7;
-        transition: all 0.3s ease;
-        cursor: pointer;
+        Image {
+          width: 40px;
+          opacity: 0.7;
+          transition: all 0.3s ease;
+          cursor: pointer;
 
-        &:hover {
-          opacity: 1;
-          transform: translateY(-3px);
-        }
+          &:hover {
+            opacity: 1;
+            transform: translateY(-3px);
+          }
 
-        @include tablet {
-          width: 35px;
-        }
+          @include tablet {
+            width: 35px;
+          }
 
-        @include mobile {
-          width: 30px;
+          @include mobile {
+            width: 30px;
+          }
         }
       }
     }

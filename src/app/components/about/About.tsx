@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import './about.scss'
-import { motion, useInView } from 'framer-motion'
+import { motion } from 'framer-motion'
 import uclCr7 from '@/assets/ucl king.jpg'
 import juveImg from '@/assets/gal juve.jpg'
 import rmImg from '@/assets/gal real.jpg'
