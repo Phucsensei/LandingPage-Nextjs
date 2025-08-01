@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { DM_Sans } from 'next/font/google'
 import './globals.css'
-import { twMerge } from 'tailwind-merge'
+import { Toaster } from 'react-hot-toast'
 
 const dmSans = DM_Sans({
   subsets: ['latin']
@@ -18,10 +18,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="relative">
-      <body
-        className={twMerge(dmSans.className, 'antialiased bg-[#EAEEFE]')}
-      >
+    <html lang="en">
+      <body className={dmSans.className}>
+        <Toaster
+          position="top-right"
+          toastOptions={{
+            style: {
+              background: '#333',
+              color: '#fff'
+            },
+            duration: 3000
+          }}
+        />
         {children}
       </body>
     </html>
