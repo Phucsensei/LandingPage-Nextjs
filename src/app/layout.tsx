@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { DM_Sans } from 'next/font/google'
-import './globals.css'
+import './globals.scss'
 import { Toaster } from 'react-hot-toast'
 
 const dmSans = DM_Sans({

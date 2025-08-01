@@ -5,7 +5,8 @@ const nextConfig: NextConfig = {
     domains: ['via.placeholder.com', 'cr7-ronaldo.netlify.app']
   },
   sassOptions: {
-    additionalData: '$var: red;'
+    includePaths: ['./src'],
+    prependData: `@import "@/app/styles/mixins";`
   },
   webpack(config: any) {
     // Grab the existing rule that handles SVG imports

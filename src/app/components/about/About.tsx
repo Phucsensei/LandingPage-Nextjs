@@ -12,7 +12,6 @@ export const About = () => {
 
     const ref = useRef(null)
 
-    const isInView = useInView(ref, { margin: '-100px' })
 
     const variants = {
         initial: {
@@ -32,11 +31,8 @@ export const About = () => {
     }
 
     return (
-        <motion.div className="about" variants={variants} initial="initial" ref={ref} animate={isInView && 'animate'}>
-            <motion.div className='textContainer' variants={variants}>
-                <p>I see football as an art and all players are artists.
-                    <br />If you are a top artist, the last thing you would do is paint a picture somebody else has already painted.</p>
-            </motion.div>
+        <motion.div className="about" variants={variants} initial="initial" ref={ref} animate={'animate'}>
+
             <motion.div className='titleContainer' variants={variants}>
                 <div className="title">
                     <Image src={uclCr7} alt="about" />

@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import './hero.scss'
-import cr7 from '../../../assets/cr7-2.png'
+import heroImage from '../../../assets/hero.png'
 import scroll from '../../../assets/scroll.png'
 import { Variants, motion } from 'framer-motion'
 
@@ -37,10 +37,10 @@ export const Hero = () => {
             <div className="wrapper">
 
                 <motion.div className="textContainer" variants={textVariants} initial="initial" animate="animate">
-                    <motion.h2 variants={textVariants}>Cristiano Ronaldo</motion.h2>
-                    <motion.h1 variants={textVariants}>Fast. Focused. Fearless — like CR7.</motion.h1>
+                    <motion.h2 variants={textVariants}>MAX I & US</motion.h2>
+                    <motion.p variants={textVariants}>Maxius is the only self-developed semiconductor company that focuses on developing High-Performance Servers. We provide specialized solutions tailored towards different sectors of the IT industry and strive to break into the global market as a leader in server technology.</motion.p>
                     <motion.div className="buttons" variants={textVariants}>
-                        <motion.button variants={textVariants}>See his legendary moments</motion.button>
+
                         <motion.button variants={textVariants}>Contact me</motion.button>
                     </motion.div>
                     <motion.div variants={textVariants} animate="scrollButton">
@@ -52,7 +52,7 @@ export const Hero = () => {
                 Writer Content Creator Influencer
             </div>
             <div className="imageContainer">
-                <Image src={cr7} alt="cr7" />
+                <Image src={heroImage} alt="hero" />
             </div>
         </div>
     )

@@ -1,11 +1,8 @@
-import Image from 'next/image'
-import facebook from '@/assets/facebook.png'
-import instagram from '@/assets/instagram.png'
-import dribbble from '@/assets/dribbble.png'
-import youtube from '@/assets/youtube.png'
+
 import './navbar.scss'
 import { motion } from 'framer-motion'
 import { Sidebar } from '../layout/Sidebar/Sidebar'
+import Link from 'next/link'
 
 export const Navbar = () => {
     return (
@@ -16,37 +13,39 @@ export const Navbar = () => {
                 <motion.span
                     initial={{ opacity: 0, scale: 0.5 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.5 }}>ChiphucDev</motion.span>
-                <div className="social-icons">
-                    <a href="">
-                        <Image
-                            src={facebook}
-                            alt="Landscape picture"
-                        />
-                    </a>
-
-                    <a href="">
-                        <Image
-                            src={instagram}
-                            alt="Landscape picture"
-                        />
-                    </a>
-                    <a href="">
-                        <Image
-                            src={dribbble}
-                            alt="Landscape picture"
-                        />
-                    </a>
-                    <a href="">
-                        <Image
-                            src={youtube}
-                            alt="Landscape picture"
-                        />
-                    </a>
-
-
+                    transition={{ duration: 0.5 }}>MAXIOS</motion.span>
+                <div className="center-section">
+                    <ul className="nav-links">
+                        <motion.li
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.95 }}
+                        >
+                            <Link href="#HomePage">Home</Link>
+                        </motion.li>
+                        <motion.li
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.95 }}
+                        >
+                            <Link href="#About">About</Link>
+                        </motion.li>
+                        <motion.li
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.95 }}
+                        >
+                            <Link href="#Features">Features</Link>
+                        </motion.li>
+                        <motion.li
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.95 }}
+                        >
+                            <Link href="#Contact">Contact</Link>
+                        </motion.li>
+                    </ul>
                 </div>
+
+
             </div>
-        </div >
+        </div>
+
     )
 }

@@ -8,6 +8,15 @@
     max-width: 1366px;
     height: 100%;
     margin: auto;
+    padding: 0 50px;
+
+    @include tablet {
+      padding: 0 30px;
+    }
+
+    @include mobile {
+      padding: 0 20px;
+    }
 
     .textContainer {
       width: 50%;
@@ -16,32 +25,158 @@
       flex-direction: column;
       justify-content: center;
       gap: 40px;
+      margin-top: 20px;
 
-      h2 {
-        font-size: 30px;
-        color: rebeccapurple;
-        letter-spacing: 10px;
+      @include tablet {
+        width: 60%;
+        gap: 30px;
       }
 
-      h1 {
-        font-size: 88px;
+      @include mobile {
+        width: 100%;
+        height: 50%;
+        gap: 20px;
+        align-items: center;
+        text-align: center;
+      }
+
+      h2 {
+        font-size: 50px;
+        background: linear-gradient(45deg, #9333ea, #c084fc);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        letter-spacing: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        position: relative;
+        margin-bottom: 10px;
+
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: -10px;
+          left: 0;
+          width: 60px;
+          height: 4px;
+          background: linear-gradient(45deg, #9333ea, transparent);
+          border-radius: 2px;
+
+          @include mobile {
+            left: 50%;
+            transform: translateX(-50%);
+            justify-content: flex-end;
+          }
+        }
+
+        @include tablet {
+          font-size: 28px;
+          letter-spacing: 8px;
+        }
+
+        @include mobile {
+          font-size: 24px;
+          letter-spacing: 6px;
+        }
+      }
+
+      p {
+        font-size: 1.3rem;
+        color: #e5e5e5;
+        line-height: 1.8;
+        max-width: 600px;
+        opacity: 0.9;
+        font-weight: 300;
+        margin: 20px 0;
+
+        @include mobile {
+          font-size: 1rem;
+          line-height: 1.6;
+          margin-top: 80px;
+        }
       }
 
       .buttons {
+        display: flex;
+        gap: 20px;
+        margin-top: 20px;
+
+        @include mobile {
+          flex-direction: column;
+          width: 100%;
+          max-width: 300px;
+        }
+
         button {
-          padding: 20px;
-          border: 1px solid white;
-          border-radius: 10px;
-          background-color: transparent;
+          padding: 15px 30px;
+          border: 2px solid;
+          border-image: linear-gradient(45deg, #9333ea, #c084fc) 1;
+          background: transparent;
           color: white;
-          margin-right: 20px;
+          font-size: 1rem;
+          font-weight: 500;
+          letter-spacing: 1px;
           cursor: pointer;
-          font-weight: 300;
+          position: relative;
+          overflow: hidden;
+          transition: all 0.4s ease;
+          z-index: 1;
+
+          &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: linear-gradient(45deg, #9333ea, #c084fc);
+            transition: all 0.4s ease;
+            z-index: -1;
+          }
+
+          &:hover {
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(147, 51, 234, 0.3);
+
+            &:before {
+              width: 100%;
+            }
+          }
+
+          &:active {
+            transform: translateY(1px);
+          }
+
+          @include tablet {
+            padding: 12px 25px;
+            font-size: 0.9rem;
+          }
+
+          @include mobile {
+            width: 100%;
+            padding: 14px 20px;
+          }
         }
       }
 
       Image {
-        width: 50px;
+        width: 40px;
+        opacity: 0.7;
+        transition: all 0.3s ease;
+        cursor: pointer;
+
+        &:hover {
+          opacity: 1;
+          transform: translateY(-3px);
+        }
+
+        @include tablet {
+          width: 35px;
+        }
+
+        @include mobile {
+          width: 30px;
+        }
       }
     }
   }
@@ -52,6 +187,29 @@
     top: 20;
     right: 0;
     position: absolute;
+
+    @include tablet {
+      width: 50%;
+      height: 100%;
+    }
+
+    @include mobile {
+      height: 50%;
+      width: 100%;
+      top: unset;
+      bottom: 0;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top 20%;
+
+      @include tablet {
+        object-position: top;
+      }
+    }
   }
 
   .slidingTextContainer {
@@ -62,6 +220,7 @@
     white-space: nowrap;
     color: #ffffff09;
     animation: moveText 15s linear infinite;
+
     @keyframes moveText {
       0% {
         transform: translateX(0);
