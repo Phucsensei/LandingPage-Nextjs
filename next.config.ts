@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
   },
   sassOptions: {
     includePaths: ['./src'],
-    prependData: `@import "@/app/styles/mixins";`
+    prependData: '@import "@/app/styles/mixins";'
   },
   webpack(config: any) {
     // Grab the existing rule that handles SVG imports

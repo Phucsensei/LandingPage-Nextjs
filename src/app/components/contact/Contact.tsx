@@ -48,7 +48,7 @@ export const Contact = () => {
         <>
             <motion.div className='contact' variants={variants} initial="initial" whileInView='animate' >
                 <motion.div className="textContainer" variants={variants}>
-                    <motion.h1 variants={variants}>Let's work together</motion.h1>
+                    <motion.h1 variants={variants}>Let&apos;s work together</motion.h1>
                     <motion.div className="item" variants={variants}>
                         <h2>Mail</h2>
                         <span>phuctc6776@gmail.com</span>

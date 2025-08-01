@@ -106,7 +106,7 @@ export const Feature = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
                 >
-                    Ronaldo's Career Timeline
+                    Ronaldo&apos;s Career Timeline
                 </motion.h1>
                 <motion.div className="progressBar" style={{ scaleX }}></motion.div>
             </div>

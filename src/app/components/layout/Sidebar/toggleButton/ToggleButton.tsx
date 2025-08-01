@@ -21,7 +21,7 @@ const bottomVariant = {
 }
 
 export const ToggleButton = ({ setOpen }: ToggleButtonProps) => {
-    const [isOpen, setIsOpen] = React.useState(false)
+    const [, setIsOpen] = React.useState(false)
 
     const handleToggle = () => {
         setOpen(prev => !prev)
