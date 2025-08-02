@@ -1,7 +1,5 @@
 import Image from 'next/image'
 import './hero.scss'
-import heroImage from '../../../assets/hero.png'
-import scroll from '../../../assets/scroll.png'
 import { Variants, motion } from 'framer-motion'
 
 
@@ -44,7 +42,7 @@ export const Hero = () => {
                         <motion.button variants={textVariants}>Contact me</motion.button>
                     </motion.div>
                     <motion.div variants={textVariants} animate="scrollButton">
-                        <Image src={scroll} alt="scroll" />
+                        <Image src="/scroll.png" width={40} height={40} alt="scroll" />
                     </motion.div>
                 </motion.div>
             </div>
@@ -52,7 +50,7 @@ export const Hero = () => {
                 Writer Content Creator Influencer
             </div>
             <div className="imageContainer">
-                <Image src={heroImage} alt="hero" />
+                <Image src="/hero.png" fill style={{ objectFit: 'cover' }} alt="hero" />
             </div>
         </div>
     )

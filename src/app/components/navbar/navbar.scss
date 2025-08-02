@@ -22,18 +22,12 @@
   position: relative;
   z-index: 100;
 
-  @include desktop {
-    span {
-      font-size: 24px;
-      margin-left: 50px;
-    }
-  }
-
   .wrapper {
     max-width: 1366px;
     margin: auto;
     display: flex;
     align-items: center;
+
     justify-content: space-between;
     height: 100%;
     padding: 0 2rem;

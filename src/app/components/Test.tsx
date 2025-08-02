@@ -1,6 +1,5 @@
 
 import { motion, Variants } from 'framer-motion'
-import { useState } from 'react'
 
 export const Test = () => {
 
