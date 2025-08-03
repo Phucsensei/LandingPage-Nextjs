@@ -1,3 +1,4 @@
+'use client'
 import './feature.scss'
 import { items } from '@/app/apis/mock-data'
 import { motion, useScroll, useSpring, useTransform, useInView } from 'framer-motion'
@@ -85,7 +86,7 @@ const Single = ({ item }: FeatureItemProps) => {
     )
 }
 
-export const Feature = () => {
+const Feature = () => {
     const ref = useRef(null)
 
     const { scrollYProgress } = useScroll({
@@ -106,7 +107,7 @@ export const Feature = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
                 >
-                    Ronaldo&apos;s Career Timeline
+                    Maxius Software Overview
                 </motion.h1>
                 <motion.div className="progressBar" style={{ scaleX }}></motion.div>
             </div>
@@ -116,3 +117,5 @@ export const Feature = () => {
         </div>
     )
 }
+
+export default Feature

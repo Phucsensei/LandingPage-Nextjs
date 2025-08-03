@@ -2,41 +2,55 @@ import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
   images: {
-    domains: ['via.placeholder.com', 'cr7-ronaldo.netlify.app']
+    domains: [
+      'codakid.com',
+      'wearenotch.com',
+      'www.kerridgecs.com',
+      'opendatascience.com',
+      'raw.githubusercontent.com',
+      'via.placeholder.com'
+    ]
   },
   sassOptions: {
     includePaths: ['./src'],
     prependData: '@import "@/app/styles/mixins";'
   },
   webpack(config: any) {
-    // Grab the existing rule that handles SVG imports
     const fileLoaderRule = config.module.rules.find((rule: any) =>
       rule.test?.test?.('.svg')
     )
 
     config.module.rules.push(
-      // Reapply the existing rule, but only for svg imports ending in ?url
       {
         ...fileLoaderRule,
         test: /\.svg$/i,
-        resourceQuery: /url/ // *.svg?url
+        resourceQuery: /url/
       },
-      // Convert all other *.svg imports to React components
       {
         test: /\.svg$/i,
         issuer: fileLoaderRule.issuer,
-        resourceQuery: { not: [...fileLoaderRule.resourceQuery.not, /url/] }, // exclude if *.svg?url
+        resourceQuery: { not: [...fileLoaderRule.resourceQuery.not, /url/] },
         use: ['@svgr/webpack']
       }
     )
 
-    // Modify the file loader rule to ignore *.svg, since we have it handled now.
     fileLoaderRule.exclude = /\.svg$/i
 
     return config
-  }
-
-  // ...other config
+  },
+  // Performance optimizations
+  poweredByHeader: false,
+  compress: true,
+  reactStrictMode: true,
+  swcMinify: true,
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production'
+  },
+  experimental: {
+    optimizeCss: true,
+    scrollRestoration: true
+  },
+  // Cache optimizations
+  generateEtags: true,
+  staticPageGenerationTimeout: 100
 }
-
-export default nextConfig

@@ -14,10 +14,10 @@ export const Links = () => {
 
     const items = [
         'HomePage',
-        'Services',
+        'Features',
         'About',
         'Contact',
-        'Blog'
+        'Footer'
     ]
     return (
         <motion.div className="links" variants={Variants}>

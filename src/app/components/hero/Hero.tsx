@@ -1,10 +1,9 @@
+'use client'
 import Image from 'next/image'
 import './hero.scss'
 import { Variants, motion } from 'framer-motion'
 
-
-export const Hero = () => {
-
+const Hero = () => {
     const textVariants: Variants = {
         initial: {
             x: -500,
@@ -19,7 +18,6 @@ export const Hero = () => {
             }
         },
         scrollButton: {
-
             opacity: 0,
             y: 10,
             transition: {
@@ -27,22 +25,35 @@ export const Hero = () => {
                 repeat: Infinity
             }
         }
-
     }
 
     return (
         <div className="hero">
             <div className="wrapper">
-
                 <motion.div className="textContainer" variants={textVariants} initial="initial" animate="animate">
                     <motion.h2 variants={textVariants}>MAX I & US</motion.h2>
-                    <motion.p variants={textVariants}>Maxius is the only self-developed semiconductor company that focuses on developing High-Performance Servers. We provide specialized solutions tailored towards different sectors of the IT industry and strive to break into the global market as a leader in server technology.</motion.p>
+                    <motion.p variants={textVariants}>
+                        Maxius is the only self-developed semiconductor company that focuses on developing High-Performance Servers.
+                        We provide specialized solutions tailored towards different sectors of the IT industry and strive to break
+                        into the global market as a leader in server technology.
+                    </motion.p>
                     <motion.div className="buttons" variants={textVariants}>
-
-                        <motion.button variants={textVariants}>Contact me</motion.button>
+                        <motion.button
+                            variants={textVariants}
+                            whileHover={{ scale: 1.1 }}
+                            whileTap={{ scale: 0.95 }}
+                        >
+                            Contact me
+                        </motion.button>
                     </motion.div>
                     <motion.div variants={textVariants} animate="scrollButton">
-                        <Image src="/scroll.png" width={40} height={40} alt="scroll" />
+                        <Image
+                            src="/scroll.png"
+                            width={40}
+                            height={40}
+                            alt="scroll"
+                            priority
+                        />
                     </motion.div>
                 </motion.div>
             </div>
@@ -50,8 +61,17 @@ export const Hero = () => {
                 Writer Content Creator Influencer
             </div>
             <div className="imageContainer">
-                <Image src="/hero.png" fill style={{ objectFit: 'cover' }} alt="hero" />
+                <Image
+                    src="/hero.png"
+                    fill
+                    style={{ objectFit: 'cover' }}
+                    alt="hero"
+                    priority
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
             </div>
         </div>
     )
 }
+
+export default Hero

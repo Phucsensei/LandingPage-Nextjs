@@ -1,3 +1,4 @@
+'use client'
 import { useRef } from 'react'
 import './contact.scss'
 import { motion, useInView } from 'framer-motion'
@@ -19,8 +20,8 @@ const variants = {
         }
     }
 }
-export const Contact = () => {
 
+export const Contact = () => {
     const ref = useRef(null)
     const formRef = useRef(null)
     const isInView = useInView(ref, { margin: '-100px' })
@@ -43,9 +44,9 @@ export const Contact = () => {
                     console.error('EmailJS Error:', error)
                     toast.error('Something went wrong!')
                 }
-
             )
     }
+
     return (
         <>
             <motion.div className='contact' variants={variants} initial="initial" whileInView='animate' >
@@ -65,14 +66,24 @@ export const Contact = () => {
                     </motion.div>
                 </motion.div>
                 <div className="formContainer">
-                    <motion.form ref={formRef} onSubmit={sendEmail} initial={{ opacity: 1 }} transition={{ duration: 1, delay: 3 }} animate={isInView && { opacity: 1 }}>
+                    <motion.form
+                        ref={formRef}
+                        onSubmit={sendEmail}
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        transition={{ duration: 1, delay: 0.5 }}
+                    >
                         <input required type="text" placeholder='Name' name='name' />
-                        <input required type="text" placeholder='Email' name='email' />
+                        <input required type="email" placeholder='Email' name='email' />
                         <textarea required rows={8} placeholder='Message' name='message' />
-                        <button>Submit</button>
+                        <motion.button
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                        >
+                            Submit
+                        </motion.button>
                     </motion.form>
                 </div>
-
             </motion.div>
             <Footer />
         </>
